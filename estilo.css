@@ -1,0 +1,456 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+:root {
+
+	--cor01: #9C6988;  /*roxo*/
+	--cor02: #27271E; /*preto*/
+	--cor03: #FFF; /*cinza*/
+	--cor04:#F0F0F0; /*cinza bem clar*/
+	--cor05:#3E3E40; /*cinza escuro*/
+
+	--fontetitulo: 'Merriweather', serif;
+	--fontetexto: 'Montserrat', sans-serif;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: var(--fontetexto);
+	text-align: justify;
+	background-color: var(--cor04);
+	color: var(--cor02);
+	min-width: 490px;
+
+}
+
+html{
+     scroll-behavior: smooth;
+     scroll-padding-top: 5rem;
+ }
+
+/*LAYOUT GERAL - */
+/*isso aqui é para permitir que o nav acompanhe o site todo e não só o primeiro container grid*/
+/*Existe um grid container0, dentro dele dois gridcontainers (1 e 2), cada qual com seus elementos*/
+
+div.gridcontainer0 {
+	max-width: 1000px;
+	margin: 0px auto 0px auto;
+
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	grid-template-areas:
+	"gridcontainer1"
+	"gridcontainer2";
+}
+
+
+/*Dentro da GridContainer0 há somente o NAV. Isso é para que ele percorra o site inteiro*/
+
+/*FORMATAÇÃO DO NAV E DE ELEMENTOS DENTRO DO NAV*/
+nav {
+	height: 70px;
+}
+/*Formatação do quadrado no topo esquerdo do nav*/
+
+.navbar-brand {
+	margin: 10px 15px 0px 25px;
+}
+
+/*Formatação do ícone hamburguer quando o menu vai pra tela menor no topo direito do nav*/
+
+.navbar-toggler {
+	margin: 10px 25px 0px 15px;
+}
+
+/*Formatação dos itens li da lista do Nav*/
+.nav-item {
+	margin: 0px 0px 0px 0px;  /*Só para centralizar o texto com o quadrado*/
+	background-color: white;
+	height: 50px;
+
+}
+/*Formatação dos links que aparecem*/
+.nav-link {
+	font-family: var(--fontetexto);
+	color: var(--cor02);
+}
+
+.nav-link:hover {
+	text-decoration: underline;
+	color: var(--cor01);
+}
+
+/*Formatação dos links no Dropdown menu*/
+.dropdown-item {
+	font-family: var(--fontetexto);
+	color: var(--cor02);
+
+}
+
+.dropdown-item:hover {
+	text-decoration: underline;
+	color: var(--cor01);
+}
+
+/*Formatação da navbar colapsada*/
+
+.navbar-nav {
+	margin-left: 25px;
+}
+
+/*LAYOUT PRIMEIRA PARTE*/
+
+div.gridcontainer1 {
+	font-size: 1.7rem;
+	max-width: 1000px;
+	margin: 0px auto 25px auto;
+	padding: 25px;
+	background-color: var(--cor03);
+
+
+	grid-area: gridcontainer1;
+
+
+	display: grid;
+	grid-template-columns: 3fr 3fr 6fr;
+	grid-template-rows: auto auto auto auto;
+	grid-column-gap: 0px;
+	grid-row-gap: 15px;
+	grid-template-areas:
+	"conteudoinicial conteudoinicial conteudoinicial"
+	"contatos contatos ."
+	"listaicones listacontatos ."
+	"sabermais sabermais sabermais";
+}
+
+
+/*LAYOUT - POSICIONAMENTO DA DIV*/
+
+header.conteudoinicial {
+	grid-area: conteudoinicial;
+}
+
+/*FORMATAÇÃO DOS ELEMENTOS DENTRO DA DIV */
+
+	.conteudoinicial > h1 {
+		text-align: center;
+		font-weight: 700;
+	}
+
+	.conteudoinicial > h2 {
+		text-align: left;
+		font-weight: 300;
+	}
+
+	.conteudoinicial > p {
+		text-indent: 40px;
+		font-weight: 300;
+		line-height: 1.3;
+		margin: 20px;
+	}
+
+/*LAYOUT - POSICIONAMENTO DA DIV*/
+
+div.contatos {
+	grid-area: contatos;
+}
+
+/*FORMATAÇÃO DOS ELEMENTOS DENTRO DA DIV */
+
+	/*.conteudoinicial > h2 {
+		text-align: left;
+		font-weight: 300;
+	} -> indicação de que a formatação dessa área segue a da DIV anterior*/ 
+
+/*LAYOUT - POSICIONAMENTO DA DIV*/
+
+div.listaicones {
+	grid-area: listaicones;
+}
+
+/*FORMATAÇÃO DOS ELEMENTOS DENTRO DA DIV */
+
+	i.bi {
+		color: var(--cor01);
+		font-size: 2rem;
+		text-align: center;
+		display: block;
+		padding: 0;
+	}
+
+/*LAYOUT - POSICIONAMENTO DA DIV*/
+
+div.listacontatos {
+	grid-area: listacontatos;
+}
+
+/*FORMATAÇÃO DOS ELEMENTOS DENTRO DA DIV */
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+	}
+
+	li {
+		line-height: 45px;
+	}
+
+	li > a {
+		display: block;
+		text-decoration: none;
+		color: var(--cor02);
+		font-size: 1.3rem;
+		text-align: left;
+		padding: 0;
+	}
+
+	li > a:hover {
+		text-decoration: underline;
+		color: var(--cor01);
+	}
+
+
+/*LAYOUT - POSICIONAMENTO DA DIV*/
+
+div.sabermais {
+	grid-area: sabermais;
+}
+
+header {
+	font-size: 1.7rem;
+}
+
+/*SEGUNDA PARTE */
+
+/*LAYOUT SEGUNDA PARTE*/
+
+div.gridcontainer2 {
+	font-size: 1.7rem;
+	max-width: 1000px;
+	margin: auto;
+
+
+	grid-area: gridcontainer2;
+
+
+	display: grid;
+	grid-template-columns: 2fr 10fr;
+	grid-template-rows: auto 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 0px;
+	grid-template-areas: "aside main"
+	"aside footer";
+}
+
+aside {
+	grid-area: aside;
+	text-align: center;
+	margin: 0px;
+	padding: 20px 0px;
+	background-color: var(--cor03);
+}
+
+.aside > h1 {
+		font-family: var(--fontetitulo);
+		margin: 10px auto 0 auto;
+		font-size: 0.8em;
+	}
+
+.aside > h2 {
+	color: var(--cor01);
+	margin: 0 auto;
+	font-size: 0.5em;
+}
+
+.aside > h3 {
+	font-weight: 100;
+	margin: 15px;
+	font-size: 0.5em;
+}
+
+aside > table {
+	background-color: var(--cor01);
+	align-content: center;
+	line-height: 1;
+	font-size: 0.2em;
+
+}
+
+
+.aside > i {
+	color: var(--cor03);
+	font-size: 4em;
+	margin: 10px;
+	text-align: center;
+	display: block;
+}
+
+.aside > a {
+		display: block;
+		text-decoration: none;
+		color: var(--cor03);
+		font-size: 2.7em;
+		text-align: left;
+		margin: 10px;
+	}
+
+		.aside > a:hover {
+			text-decoration: underline;
+			color: var(--cor02);
+		}
+
+
+main {
+	grid-area: main;
+	background-color: var(--cor04);
+}
+
+section {
+	background-color: var(--cor03);
+	margin: 0px auto 20px auto;
+	padding: 20px 0px 20px 20px;
+}
+
+section > h1 {
+	font-family: var(--fontetitulo);
+	line-height: 1.3;
+	font-size: 1.3em;
+}
+
+hr {
+	width: 10%;
+	height: 3px;
+	border: solid;
+    background-color: var(--cor01);
+    color: var(--cor01);
+    opacity: 1;
+    margin: 0 0 5px 0;
+
+	}
+
+.containerflex {
+	display: flex;
+}
+
+.conteudo {
+	width: 80%;
+}
+
+.conteudo > h4 {
+	font-family: var(--fontetitulo);
+	text-align: justify;
+	font-size: 0.7em;
+	line-height: 1.3;
+	margin: 7px 7px 0px 7px;
+}
+
+.conteudo > h5 {
+	text-align: justify;
+	font-size: 0.5em;
+	font-weight: 200;
+	line-height: 1.3;
+	margin: 0px 7px 7px 7px;
+
+}
+
+.conteudo > ul {
+	list-style-type: square;
+	list-style-position: inside;
+	margin: 7px;
+	padding: 0;
+	font-size: 0.7em;
+}
+
+li.conteudo {
+	line-height: 1.2;
+	width: 100%;
+	margin-bottom: 20px;
+	font-weight: 200;
+}
+.dados > h6 {
+	text-align: center;
+	line-height: 1.7;
+	font-weight: 200;
+	font-size: 0.4em;
+	margin: 9px 7px 0px 7px;
+}
+
+.dados {
+	width: 12%;
+}
+
+/*FORMATAÇÃO DO CARROSEL*/
+
+.carousel-caption {
+	width: 250px;
+	height: 250px;
+	padding: 15px;
+	font-size: 12px;
+	background-color: var(--cor02);
+	font-family: var(--fontetexto);
+}
+.carousel-caption > h5 {
+	font-family: var(--fontetitulo);
+}
+
+.carousel-caption > a {
+	color: white;
+}
+
+.carousel-caption > a:hover {
+	text-decoration: underline;
+	color: var(--cor01);
+}
+
+footer {
+	grid-area: footer;
+	background-color: var(--cor02);
+	color: var(--cor03);
+	text-align: center;
+	font-family: var(--fontetitulo);
+	font-size: 14px;
+	padding: 10px;
+}
+
+
+/*RESPONSIVIDADE - ADAPTAÇÃO PARA MOBILE*/
+
+@media screen and (max-width: 780px) {
+
+	
+	div.gridcontainer2 {
+		font-size: 2em;
+		margin: auto;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+		grid-column-gap: 20px;
+		grid-row-gap: 0px;
+		grid-template-areas: "main"
+		"aside"
+		"footer";
+	}
+
+	aside {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.dados {
+		margin-right: 10px;
+	}
+
+
+
+}
